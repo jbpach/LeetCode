@@ -1,13 +1,15 @@
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        num_need = {}
-        
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        remainders = {}
         for i in range(len(nums)):
-            val = target - nums[i]
-
-            if nums[i] in num_need:
-                return [num_need[nums[i]], i]
-            
-            num_need[val] = i
-        print(num_need)
-                
+            remainder = target - nums[i]
+            if nums[i] in remainders:
+                return remainders[nums[i]], i
+            else:
+                remainders[remainder] = i
+        
