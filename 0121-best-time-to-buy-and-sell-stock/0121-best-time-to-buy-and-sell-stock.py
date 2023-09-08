@@ -1,14 +1,16 @@
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        
-        min_n = 9999999999
-        profit = 0
-        for num in prices:
-            if num < min_n:
-                min_n = num
-            if num - min_n > profit:
-                profit = num - min_n
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        cheapest = 999999
+        max_profit = 0
+        for i in range(len(prices)):
+            if prices[i] < cheapest:
+                cheapest = prices[i]
+                
+            if prices[i] - cheapest > max_profit:
+                max_profit = prices[i] - cheapest
             
-        return profit
-            
-        
+        return max_profit
