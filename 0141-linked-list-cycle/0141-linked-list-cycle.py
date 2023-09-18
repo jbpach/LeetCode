@@ -11,6 +11,7 @@ class Solution(object):
         :rtype: bool
         """
         
+        """
         passed = []
         current = head
         while current:
@@ -19,5 +20,17 @@ class Solution(object):
             else:
                 return True
             current = current.next
+        return False
+        """
+        
+        slow = head
+        fast = head
+        
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                return True
+            
         return False
         
